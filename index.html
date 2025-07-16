@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | CRUD Productos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1><i class="fa-solid fa-box"></i> CRUD Productos</h1>
+            <nav>
+                <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="products.html"><i class="fa-solid fa-list"></i> Productos</a>
+                <a href="createproducts.html"><i class="fa-solid fa-plus"></i> Crear Producto</a>
+                <a href="#" id="login-link"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a>
+                <a href="#" id="register-link"><i class="fa-solid fa-user-plus"></i> Registrarse</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Bienvenido a CRUD Productos</h2>
+            <p>Gestiona tus productos de manera sencilla, profesional y rápida. Utiliza la barra de navegación para ver, crear o administrar productos.</p>
+            <ul class="features-list">
+                <li><i class="fa-solid fa-check"></i> Publica productos fácilmente</li>
+                <li><i class="fa-solid fa-check"></i> Visualiza y administra tu inventario</li>
+                <li><i class="fa-solid fa-check"></i> Interfaz moderna y cómoda</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; 2024 CRUD Productos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

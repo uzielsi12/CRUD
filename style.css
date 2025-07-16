@@ -1,0 +1,235 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+  background: #f6f8fa;
+  color: #232946;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header#main-header {
+  background: #232946;
+  color: #fff;
+  padding: 24px 0 16px 0;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(35,41,70,0.07);
+}
+header#main-header h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header#main-header nav {
+  margin-top: 8px;
+}
+header#main-header nav a {
+  color: #eebbc3;
+  text-decoration: none;
+  margin-right: 22px;
+  font-weight: 500;
+  font-size: 1.08rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.18s, color 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+header#main-header nav a.active,
+header#main-header nav a:hover {
+  background: #eebbc3;
+  color: #232946;
+}
+
+footer#main-footer {
+  background: #232946;
+  color: #fff;
+  text-align: center;
+  padding: 18px 0 12px 0;
+  margin-top: auto;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+main {
+  flex: 1;
+}
+
+.form-section {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(35,41,70,0.09);
+  padding: 38px 30px 32px 30px;
+  max-width: 480px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+.form-section h2 {
+  margin-bottom: 18px;
+  color: #232946;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.form-section .form-description {
+  color: #6d6a7c;
+  font-size: 1.02rem;
+  margin-bottom: 22px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 500;
+  color: #232946;
+  font-size: 1.04rem;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1.5px solid #b8c1ec;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f6f8fa;
+  transition: border 0.2s;
+  color: #232946;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border: 1.5px solid #eebbc3;
+  outline: none;
+  background: #fff;
+}
+.form-group textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+.btn {
+  background: linear-gradient(90deg, #eebbc3 0%, #b8c1ec 100%);
+  color: #232946;
+  border: none;
+  padding: 13px 32px;
+  border-radius: 6px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: 0 1px 4px rgba(35,41,70,0.07);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn:hover {
+  background: linear-gradient(90deg, #b8c1ec 0%, #eebbc3 100%);
+  color: #232946;
+}
+#form-message {
+  margin-top: 18px;
+  font-size: 1.04rem;
+  color: #388e3c;
+  min-height: 24px;
+  font-weight: 500;
+}
+@media (max-width: 600px) {
+  .form-section {
+    padding: 18px 6vw 18px 6vw;
+    max-width: 98vw;
+  }
+  header#main-header h1 {
+    font-size: 1.2rem;
+  }
+  header#main-header nav a {
+    font-size: 0.98rem;
+    margin-right: 10px;
+  }
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(35,41,70,0.07);
+  padding: 22px 20px 16px 20px;
+  margin-bottom: 22px;
+  transition: box-shadow 0.18s;
+  border-left: 5px solid #eebbc3;
+}
+.product-card h3 {
+  margin-bottom: 10px;
+  color: #232946;
+  font-size: 1.18rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.product-card .desc {
+  color: #6d6a7c;
+  margin-bottom: 8px;
+  font-size: 1.04rem;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.product-card .price {
+  color: #232946;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 1.08rem;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.product-card .date {
+  color: #b8c1ec;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.products-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px 30px 10px;
+}
+.products-section h2 {
+  margin-bottom: 24px;
+  color: #232946;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.empty-message {
+  color: #6d6a7c;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.08rem;
+}
