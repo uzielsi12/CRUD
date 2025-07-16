@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
+<body style="background: repeating-linear-gradient(135deg, #f6f8fa, #f6f8fa 40px, #e0e7ff 40px, #e0e7ff 80px);">
     <header id="main-header">
         <div class="container">
             <h1><i class="fa-solid fa-box"></i> CRUD Productos</h1>
@@ -20,6 +20,8 @@
                 <a href="createproducts.html" class="active"><i class="fa-solid fa-plus"></i> Crear Producto</a>
                 <a href="#" id="login-link"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a>
                 <a href="#" id="register-link"><i class="fa-solid fa-user-plus"></i> Registrarse</a>
+                <a href="#" id="logout-link" style="display:none"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión</a>
+                <span id="user-welcome" style="display:none; margin-left:18px;"></span>
             </nav>
         </div>
     </header>
@@ -27,25 +29,51 @@
     <main>
         <section class="form-section">
             <h2><i class="fa-solid fa-plus"></i> Publicar un nuevo producto</h2>
-            <p class="form-description">Completa los datos para agregar un producto a la tienda. Todos los campos son obligatorios.</p>
-            <form id="product-form">
-                <div class="form-group">
-                    <label for="product-name"><i class="fa-solid fa-tag"></i> Nombre del producto</label>
-                    <input type="text" id="product-name" name="productName" placeholder="Ej: Camiseta básica" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-description"><i class="fa-solid fa-align-left"></i> Descripción</label>
-                    <textarea id="product-description" name="productDescription" placeholder="Describe el producto..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="product-price"><i class="fa-solid fa-dollar-sign"></i> Precio</label>
-                    <input type="number" id="product-price" name="productPrice" min="0" step="0.01" placeholder="0.00" required>
-                </div>
-                <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Publicar Producto</button>
-            </form>
-            <div id="form-message"></div>
+            <div id="auth-status"></div>
+            <div id="product-form-container" style="display:none">
+                <p class="form-description">Completa los datos para agregar un producto a la tienda. Todos los campos son obligatorios.</p>
+                <form id="product-form">
+                    <div class="form-group">
+                        <label for="product-name"><i class="fa-solid fa-tag"></i> Nombre del producto</label>
+                        <input type="text" id="product-name" name="productName" placeholder="Ej: Camiseta básica" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description"><i class="fa-solid fa-align-left"></i> Descripción</label>
+                        <textarea id="product-description" name="productDescription" placeholder="Describe el producto..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price"><i class="fa-solid fa-dollar-sign"></i> Precio</label>
+                        <input type="number" id="product-price" name="productPrice" min="0" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Publicar Producto</button>
+                </form>
+                <div id="form-message"></div>
+            </div>
         </section>
     </main>
+
+    <!-- Modal de autenticación -->
+    <div id="auth-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="close-auth-modal">&times;</span>
+            <h3 id="auth-modal-title">Iniciar Sesión</h3>
+            <form id="auth-form">
+                <div class="form-group">
+                    <label for="auth-email"><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+                    <input type="email" id="auth-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="auth-password"><i class="fa-solid fa-lock"></i> Contraseña</label>
+                    <input type="password" id="auth-password" required>
+                </div>
+                <button type="submit" class="btn" id="auth-submit-btn">Iniciar Sesión</button>
+                <button type="button" class="btn btn-secondary" id="switch-auth-mode">¿No tienes cuenta? Regístrate</button>
+            </form>
+            <div class="auth-divider">o</div>
+            <button class="btn btn-google" id="google-signin-btn"><i class="fa-brands fa-google"></i> Continuar con Google</button>
+            <div id="auth-error-message"></div>
+        </div>
+    </div>
 
     <footer id="main-footer">
         <div class="container">
