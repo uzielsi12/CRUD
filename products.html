@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | CRUD Productos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1><i class="fa-solid fa-box"></i> CRUD Productos</h1>
+            <nav>
+                <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="products.html" class="active"><i class="fa-solid fa-list"></i> Productos</a>
+                <a href="createproducts.html"><i class="fa-solid fa-plus"></i> Crear Producto</a>
+                <a href="#" id="login-link"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a>
+                <a href="#" id="register-link"><i class="fa-solid fa-user-plus"></i> Registrarse</a>
+                <a href="#" id="logout-link" style="display:none"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión</a>
+                <span id="user-welcome" style="display:none; margin-left:18px;"></span>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="products-section">
+            <h2><i class="fa-solid fa-list"></i> Lista de productos</h2>
+            <div id="auth-status"></div>
+            <form class="products-search" id="products-search-form" autocomplete="off">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="Buscar producto...">
+            </form>
+            <div id="products-list">
+                <!-- Aquí se mostrarán los productos desde Firestore -->
+                <div id="empty-products">
+                    <svg class="empty-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="40" width="100" height="60" rx="12" fill="#eebbc3"/>
+                        <rect x="25" y="55" width="70" height="30" rx="6" fill="#b8c1ec"/>
+                        <circle cx="60" cy="70" r="8" fill="#ffd803"/>
+                    </svg>
+                    <p class="empty-message">No hay productos publicados aún.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de autenticación -->
+    <div id="auth-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="close-auth-modal">&times;</span>
+            <h3 id="auth-modal-title">Iniciar Sesión</h3>
+            <form id="auth-form">
+                <div class="form-group">
+                    <label for="auth-email"><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+                    <input type="email" id="auth-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="auth-password"><i class="fa-solid fa-lock"></i> Contraseña</label>
+                    <input type="password" id="auth-password" required>
+                </div>
+                <button type="submit" class="btn" id="auth-submit-btn">Iniciar Sesión</button>
+                <button type="button" class="btn btn-secondary" id="switch-auth-mode">¿No tienes cuenta? Regístrate</button>
+            </form>
+            <div class="auth-divider">o</div>
+            <button class="btn btn-google" id="google-signin-btn"><i class="fa-brands fa-google"></i> Continuar con Google</button>
+            <div id="auth-error-message"></div>
+        </div>
+    </div>
+
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; 2024 CRUD Productos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
